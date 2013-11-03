@@ -11,7 +11,10 @@ func main() {
 	flag.Parse()
 
 	fmt.Println("Project Euler in Go")
-	fmt.Println("Invoking Problem #", *problem)
+
+    if (*problem != 0) {
+        fmt.Println("Invoking Problem #", *problem)
+    }
 
 	switch *problem {
 		case 1: one()
@@ -20,26 +23,16 @@ func main() {
 	}
 }
 
-type fibResult struct {
-	prev,  curr int
-}
-
-func (this fibResult) Next() fibResult {
-	return fibResult {this.curr, this.prev + this.curr}
-}
-
 func two() {
 	fmt.Println("By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms")
 
 	inc := 0
-	var number fibResult
-	number = fibResult {1,2}
-	for; number.curr < 4000000; number = number.Next() {
+	for number := fib(); number.curr < 4000000; number.next() {
 		if number.curr % 2 == 0 {
 			inc += number.curr
 		}
 	}
-	fmt.Println(inc)
+	fmt.Println("Answer:", inc)
 }
 
 func one() {
