@@ -2,3 +2,4 @@
 go build
 ./euler -p $1
 go clean
+go fmt
