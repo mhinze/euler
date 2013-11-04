@@ -1,5 +1,5 @@
 #!/usr/bin/zsh
 go build
-./euler -p $1
+time ./euler -p $1
 go clean
-go fmt
+go fmt 

@@ -21,9 +21,31 @@ func main() {
 		one()
 	case 2:
 		two()
+	case 3:
+		three()
 	default:
 		fmt.Println("Use -p to specify a problem")
 	}
+}
+
+func three() {
+	fmt.Println("What is the largest prime factor of the number 600851475143 ?")
+
+	target := 600851475143
+	div := 2
+
+	for {
+		if target/div == 1 && target%div == 0 {
+			break
+		}
+		if target%div == 0 {
+			target /= div
+		}
+		div += 1
+	}
+
+	fmt.Println("Answer:", div)
+
 }
 
 func two() {
