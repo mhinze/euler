@@ -23,9 +23,27 @@ func main() {
 		two()
 	case 3:
 		three()
+	case 4:
+		four()
 	default:
 		fmt.Println("Use -p to specify a problem")
 	}
+}
+
+func four() {
+	fmt.Println("Find the largest palindrome made from the product of two 3-digit numbers.")
+
+	largest := int64(0)
+	for i := 999; i > 100; i-- {
+		for j := 999; j > 100; j-- {
+			value := int64(i * j)
+			if value > largest && isPalindromeInt(value) {
+				largest = value
+			}
+		}
+	}
+
+	fmt.Println("Answer:", largest)
 }
 
 func three() {
