@@ -25,9 +25,35 @@ func main() {
 		three()
 	case 4:
 		four()
+	case 5:
+		five()
 	default:
 		fmt.Println("Use -p to specify a problem")
 	}
+}
+
+func five() {
+	fmt.Println("What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?")
+
+	isDiv := func(x int) bool {
+		for i := 1; i <= 20; i = i + 1 {
+			if x%i != 0 {
+				return false
+			}
+		}
+		return true
+	}
+
+	answer := -1
+	i := 1
+	for answer < 0 {
+		if isDiv(i) {
+			answer = i
+		}
+		i = i + 1
+	}
+
+	fmt.Println("Answer:", answer)
 }
 
 func four() {
