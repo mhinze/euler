@@ -27,9 +27,21 @@ func main() {
 		four()
 	case 5:
 		five()
+	case 6:
+		six()
 	default:
 		fmt.Println("Use -p to specify a problem")
 	}
+}
+
+func six() {
+	fmt.Println("Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.")
+	_1to100 := Numbers(1, 100)
+	squareOfSums := Square(Sum(_1to100))
+	sumOfSquares := Sum(MapInt(_1to100, Square))
+
+	answer := squareOfSums - sumOfSquares
+	fmt.Println("Answer:", answer)
 }
 
 func five() {
