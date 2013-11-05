@@ -1,5 +1,13 @@
 param([int] $p)
 
+function time($block) {
+    $sw = [Diagnostics.Stopwatch]::StartNew()
+    &$block
+    $sw.Stop()
+    $sw.Elapsed.TotalSeconds
+}
+
 go build
-.\euler.exe -p $p
+time { .\euler.exe -p $p }
 go clean
+go fmt
